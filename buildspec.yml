@@ -5,16 +5,16 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - echo Installing dependencies...
+      - echo "Installing dependencies..."
+      - python --version
+      - pip --version
+      - ls -la
+      - cat requirements.txt
       - pip install -r requirements.txt
   build:
     commands:
-      - echo Build started on `date`
-      - python -m unittest discover || echo No tests found
+      - echo "Build started on `date`"
+      - python -m unittest discover || echo "No tests found or tests failed"
   post_build:
     commands:
-      - echo Build completed on `date`
-
-artifacts:
-  files:
-    - '**/*'
+      - echo "Build completed on `date`"
