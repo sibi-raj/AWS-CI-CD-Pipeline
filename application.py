@@ -1,10 +1,9 @@
 from flask import Flask
+application = Flask(__name__) # This is the 'application' Gunicorn is looking for
 
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Hello from Flask app!"
+@application.route('/')
+def hello_world():
+    return 'Hello, world!'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run()
