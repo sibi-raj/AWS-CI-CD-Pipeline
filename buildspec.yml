@@ -3,14 +3,19 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.11
+      python: 3.13
     commands:
       - pip install -r requirements.txt
 
   build:
     commands:
-      - zip -r flask-app.zip * 
+      - zip -r flask-app.zip .
 
 artifacts:
   files:
-    - flask-app.zip
+    - 'flask-app.zip'
+    - 'Procfile'
+    - 'application.py'
+    - 'requirements.txt'
+    - 'buildspec.yml'
+    - 'tests/**'
