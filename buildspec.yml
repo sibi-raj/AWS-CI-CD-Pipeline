@@ -3,17 +3,14 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.8
+      python: 3.11
     commands:
       - pip install -r requirements.txt
+
   build:
     commands:
-      - echo "Running tests..."
-      - python -m unittest discover tests
-      - echo "Tests completed."
-  post_build:
-    commands:
-      - echo "Build successful!"
+      - zip -r flask-app.zip * 
+
 artifacts:
   files:
-    - '**/*'
+    - flask-app.zip
